@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Farm Project</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body id="farmBody">
+  <h1>Project</h1>
+  <div class="container">
+    <!-- Cột trái -->
+    <div class="left-column">
+      <div class="box"><img src="logo.png" alt="Logo" class="icon"></div>
+      <div class="box" id="clock">--:--:--</div>
+      <div class="box">
+        <input type="text" placeholder="First name"><br>
+        <input type="text" placeholder="Last name"><br>
+        <button>Submit</button>
+      </div>
+      <div class="box">
+        Latitude:<br>
+        Longitude:
+      </div>
+    </div>
+
+    <!-- Cột giữa: các cảm biến (Project) -->
+    <div class="middle-column">
+      <div class="row">
+        <div class="sensor-box">
+          <img src="co2.gif" class="icon">
+          <p>Gas: <span id="gas">--</span></p>
+        </div>
+        <div class="chart-box"><canvas id="barChart"></canvas></div>
+      </div>
+      <div class="row">
+        <div class="sensor-box">
+          <img src="nhietdo.gif" class="icon">
+          <p>Nhiệt độ: <span id="temperature">--</span>&deg;C</p>
+        </div>
+        <div class="chart-box"><canvas id="lineChart"></canvas></div>
+      </div>
+      <div class="row">
+        <div class="sensor-box">
+          <img src="doam.gif" class="icon">
+          <p>Độ ẩm: <span id="humidity">--</span>%</p>
+        </div>
+        <div class="chart-box"><canvas id="pieChart"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Cột phải: Driver (thiết bị) -->
+    <div class="right-column">
+      <div class="control-box">
+        <img id="imgDoor" src="door.png" class="icon">
+        <div>
+          <button class="on-btn" onclick="toggleDevice('door', true)">On</button>
+          <button class="off-btn" onclick="toggleDevice('door', false)">Off</button>
+        </div>
+        <p>Door</p>
+      </div>
+
+      <div class="control-box">
+        <img id="imgLight" src="den.png" class="icon">
+        <div>
+          <button class="on-btn" onclick="toggleDevice('light', true)">On</button>
+          <button class="off-btn" onclick="toggleDevice('light', false)">Off</button>
+        </div>
+        <p>Light</p>
+      </div>
+
+      <div class="control-box">
+        <img id="imgMusic" src="nhac.png" class="icon">
+        <div>
+          <button class="on-btn" onclick="toggleDevice('music', true)">On</button>
+          <button class="off-btn" onclick="toggleDevice('music', false)">Off</button>
+        </div>
+        <p>Music</p>
+      </div>
+
+      <div class="box">
+        <audio controls>
+          <source src="music.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <p>HUỲNH TẤN ĐẠT - 22161232</p>
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
